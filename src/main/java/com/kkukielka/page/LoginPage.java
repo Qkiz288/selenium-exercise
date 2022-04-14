@@ -20,11 +20,13 @@ public class LoginPage extends BasePageObject<LoginPage> {
         this.getPage(PAGE_URL);
     }
 
-    public void login(User user) {
+    public InventoryPage login(User user) {
         this.enterCredentials(user);
         clickLoginButton();
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        inventoryPage.waitForPageToLoad();
+        return inventoryPage;
     }
-
 
     public void enterCredentials(User user) {
         this.type(user.getLogin(), this.username);
