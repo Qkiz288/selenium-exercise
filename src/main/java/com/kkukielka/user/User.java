@@ -1,5 +1,6 @@
 package com.kkukielka.user;
 
+import com.kkukielka.model.UserCredentials;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -10,5 +11,9 @@ public enum User {
 
     private final String login;
     private final String password;
+
+    public UserCredentials toUserCredentials() {
+        return new UserCredentials(login, password);
+    }
 
 }

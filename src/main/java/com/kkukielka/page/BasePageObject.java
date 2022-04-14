@@ -27,18 +27,6 @@ public class BasePageObject<T> {
         return (T) this;
     }
 
-    protected void type(String text, By element) {
-        find(element).sendKeys(text);
-    }
-
-    private WebElement find(By element) {
-        return driver.findElement(element);
-    }
-
-    protected void click(By element) {
-        find(element).click();
-    }
-
     protected void waitForVisibilityOf(By element, Integer... timeOutInSeconds) {
         int attempts = 0;
         while (attempts < 2) {
@@ -60,4 +48,7 @@ public class BasePageObject<T> {
     public String getTitle() {
         return driver.getTitle();
     }
+
+
+
 }
