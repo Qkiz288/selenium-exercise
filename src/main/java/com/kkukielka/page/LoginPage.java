@@ -11,8 +11,6 @@ import org.testng.Assert;
 public class LoginPage extends BasePageObject<LoginPage> {
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
-    private static final String LOGIN_ERROR_MESSAGE =
-            "Epic sadface: Username and password do not match any user in this service";
 
     private final TextField username = new TextField(driver, By.cssSelector("#user-name"));
     private final TextField password = new TextField(driver, By.cssSelector("#password"));
@@ -40,14 +38,13 @@ public class LoginPage extends BasePageObject<LoginPage> {
         this.password.type(userCredentials.getPassword());
     }
 
-    public void clickLoginButton() {
+    public InventoryPage clickLoginButton() {
         this.loginButton.click();
+        return new InventoryPage(driver);
     }
 
     public void verifyLoginErrorMessageDisplayed() {
         Assert.assertTrue(loginErrorMessage.isDisplayed());
-        Assert.assertEquals(loginErrorMessage.getText(), LOGIN_ERROR_MESSAGE,
-                "Login error message should be equal to expected");
     }
 
 }
