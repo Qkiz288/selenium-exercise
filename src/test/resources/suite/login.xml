@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Login tests suite" verbose="1" >
+    <parameter name="browser" value="firefox"/>
+    <test name="Login tests - Firefox">
+        <classes>
+            <class name="com.kkukielka.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Login tests - Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.kkukielka.LoginTest"/>
+        </classes>
+    </test>
+</suite>

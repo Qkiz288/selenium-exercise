@@ -56,7 +56,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suite/suite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suite/login.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
