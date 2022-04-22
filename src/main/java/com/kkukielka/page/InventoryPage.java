@@ -21,6 +21,7 @@ public class InventoryPage extends BasePageObject<InventoryPage> {
     }
 
     public void isPageDisplayed() {
+        waitForPageToLoad();
         String actualTitle = this.getTitle();
         Assert.assertEquals(actualTitle, EXPECTED_PAGE_TITLE, "Page title should be equal to expected");
     }

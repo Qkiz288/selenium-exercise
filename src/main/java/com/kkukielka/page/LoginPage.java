@@ -4,10 +4,12 @@ import com.kkukielka.component.Button;
 import com.kkukielka.component.Component;
 import com.kkukielka.component.TextField;
 import com.kkukielka.model.UserCredentials;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+@Log4j2
 public class LoginPage extends BasePageObject<LoginPage> {
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
@@ -25,15 +27,9 @@ public class LoginPage extends BasePageObject<LoginPage> {
         this.getPage(PAGE_URL);
     }
 
-    public InventoryPage login(UserCredentials userCredentials) {
-        this.enterCredentials(userCredentials);
-        clickLoginButton();
-        InventoryPage inventoryPage = new InventoryPage(driver);
-        inventoryPage.waitForPageToLoad();
-        return inventoryPage;
-    }
-
     public void enterCredentials(UserCredentials userCredentials) {
+        log.debug(String.format("User credentials: %s %s",
+                userCredentials.getLogin(), userCredentials.getPassword()));
         this.username.type(userCredentials.getLogin());
         this.password.type(userCredentials.getPassword());
     }

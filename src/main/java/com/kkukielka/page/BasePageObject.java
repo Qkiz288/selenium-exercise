@@ -1,5 +1,6 @@
 package com.kkukielka.page;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Objects;
 
+@Log4j2
 public class BasePageObject<T> {
 
     protected WebDriver driver;
@@ -23,6 +25,7 @@ public class BasePageObject<T> {
 
     @SuppressWarnings("unchecked")
     protected T getPage(String url) {
+        log.info(String.format("Opening Page: %s", url));
         driver.get(url);
         return (T) this;
     }
@@ -31,9 +34,12 @@ public class BasePageObject<T> {
         int attempts = 0;
         while (attempts < 2) {
             try {
+                log.error("This message is only for testing purposes");
+                log.debug("Attempt number: " + attempts);
                 waitFor(ExpectedConditions.visibilityOfElementLocated(element),
                         (timeOutInSeconds.length > 0 ? timeOutInSeconds[0] : null));
             } catch (StaleElementReferenceException e) {
+                log.error("Element not visible!");
             }
             attempts++;
         }
