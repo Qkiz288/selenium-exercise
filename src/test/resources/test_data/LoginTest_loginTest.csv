@@ -1,0 +1,9 @@
+no,username,password,description,expected
+1,standard_user,secret_sauce,valid login,true
+2,locked_out_user,secret_sauce,locked out user,false
+3,problem_user,secret_sauce,problem user,true
+4,performance_glitch_user,secret_sauce,performance glitch user,true
+5,standard_user,invalid_password,invalid password,false
+6,invalid_user,secret_sauce,invalid user,false
+7,,secret_sauce,no username,false
+8,standard_user,,no password,false
