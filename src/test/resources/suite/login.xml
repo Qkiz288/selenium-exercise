@@ -10,6 +10,11 @@
 
     <test name="Login tests - Chrome">
         <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <exclude name="health"></exclude>
+            </run>
+        </groups>
         <classes>
             <class name="com.kkukielka.test.LoginTest"/>
         </classes>

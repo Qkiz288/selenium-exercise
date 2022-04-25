@@ -13,7 +13,15 @@ import java.util.Map;
 @Log4j2
 public class LoginTest extends BaseTest {
 
-    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class)
+    @Test(priority = 1, groups = { "health" })
+    public void loginPageDisplayedTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.open();
+        loginPage.isPageDisplayed();
+    }
+
+    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class,
+    priority = 2, groups = { "smoke" })
     public void loginTest(Map<String, String> testData) {
         String testNumber = testData.get("no");
         String username = testData.get("username");

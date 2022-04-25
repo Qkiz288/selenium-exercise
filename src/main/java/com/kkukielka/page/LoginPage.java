@@ -13,6 +13,7 @@ import org.testng.Assert;
 public class LoginPage extends BasePageObject<LoginPage> {
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
+    private static final String EXPECTED_PAGE_TITLE = "Swag Labs";
 
     private final TextField username = new TextField(driver, By.cssSelector("#user-name"));
     private final TextField password = new TextField(driver, By.cssSelector("#password"));
@@ -43,4 +44,8 @@ public class LoginPage extends BasePageObject<LoginPage> {
         Assert.assertTrue(loginErrorMessage.isDisplayed());
     }
 
+    public void isPageDisplayed() {
+        String title = this.getTitle();
+        Assert.assertEquals(title, EXPECTED_PAGE_TITLE, "Page title should be equal to expected");
+    }
 }

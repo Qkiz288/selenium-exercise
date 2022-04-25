@@ -16,7 +16,7 @@ public class BaseTest {
         driver = BrowserFactory.getDriver(browser);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }
