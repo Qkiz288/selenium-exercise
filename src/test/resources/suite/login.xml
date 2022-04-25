@@ -2,6 +2,11 @@
 
 <suite name="Login tests suite" verbose="1" parallel="tests" thread-count="2">
     <parameter name="browser" value="firefox"/>
+
+    <listeners>
+        <listener class-name="com.kkukielka.testlistener.TestListener"></listener>
+    </listeners>
+
     <test name="Login tests - Firefox">
         <classes>
             <class name="com.kkukielka.test.LoginTest"/>

@@ -5,12 +5,15 @@ import com.kkukielka.dataprovider.CsvDataProvider;
 import com.kkukielka.model.UserCredentials;
 import com.kkukielka.page.InventoryPage;
 import com.kkukielka.page.LoginPage;
+import com.kkukielka.testlistener.TestListener;
 import lombok.extern.log4j.Log4j2;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Map;
 
 @Log4j2
+@Listeners({TestListener.class})
 public class LoginTest extends BaseTest {
 
     @Test(priority = 1, groups = { "health" })

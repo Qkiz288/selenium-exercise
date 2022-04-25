@@ -3,7 +3,7 @@
 
     <!-- Logging Properties -->
     <Properties>
-        <Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n</Property>
+        <Property name="LOG_PATTERN">[%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] [%p] %m%n</Property>
         <Property name="APP_LOG_ROOT">src/main/resources/log</Property>
     </Properties>
 
@@ -69,7 +69,7 @@
         </Logger>
 
 <!--        Logger writing to console only from classes from test package -->
-        <Logger name="com.kkukielka.test" additivity="false" level="debug">
+        <Logger name="com.kkukielka" additivity="false" level="debug">
             <AppenderRef ref="Console"/>
         </Logger>
 
